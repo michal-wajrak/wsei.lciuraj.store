@@ -65,5 +65,22 @@ Jeśli Maven nie jest zainstalowany, pobierz i zainstaluj go z oficjalnej strony
 ## ZADANIA DO SAMODZIELNEGO WYKONANIA
 
 * Dodaj przycisk "Rozmyśliłem się", który będzie działał analogicznie do przycisku "Powrót do strony głównej" do każdego z działów,
+  * należy do plików *.jsp dodać nowy 'form' z przyciskiem,
 * Dodaj kolejny produkt, który będzie można dodać do koszyka ma działać analogicznie do już istniejących,
+  * należy utworzyć właściwy servlet,
+  * należy utworzyć właściwy plik *.jsp,
 * Dodaj do widoku koszyka przycisk "Wyczyść koszyk", który będzie powodował wyczyszczenie całego koszyka,
+  * należy dodać metodę 'clearBasket' do klasy BasketService,
+  * należy utworzyć klasę ClearBasketServlet z właściwą metodą 'doPost',
+  * należy we właściwy sposób zmodyfikować klasę BasketServlet,
+* Zmodyfikuj istniejącą funkcjonalność dodawania produktów do koszyka tak, aby dało się wybierać ilość produktów,
+  * należy dodać do encji dodatkowe pole 'quantity',
+  * należy odpowiednio zmodyfikować metode 'buyItem' w klasie BasketService,
+  * należy zmodyfikować metodę 'doPost' w AddToBasketServlet,
+  * należy dodać dodatkowy input typu 'number' w plikach *.jsp,
+* Zmodyfikuj istniejącą funkcjonalność tak, aby w podczas dodawania produktu do koszyka ilość sumowała się zamiast dodawać kolejny rekord w ramach tego samego produktu,
+  * należy odpowiednio zmodyfikować metode 'buyItem' w klasie BasketService,
+* Dodaj funcjonalność odejmowania produktów,
+  * należy utworzyć metodę 'sellItem' w klasie BasketService,
+  * należy utworzyć servlet SellFromBasketServlet z właściwą metodą 'doPost',
+  * należy dodać do plików *.jsp nowy form analogiczny do tego, który służy do dodawania, ale realizujący funkcjonalność odejmowania produktów z koszyka.
