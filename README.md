@@ -62,25 +62,42 @@ Jeśli Maven nie jest zainstalowany, pobierz i zainstaluj go z oficjalnej strony
   * Na macOS/Linux: uruchom skrypt shutdown.sh: ``/opt/tomcat/bin/shutdown.sh``
 
 
-## ZADANIA DO SAMODZIELNEGO WYKONANIA
+# ZADANIA DO SAMODZIELNEGO WYKONANIA
 
-* Dodaj przycisk "Rozmyśliłem się", który będzie działał analogicznie do przycisku "Powrót do strony głównej" do każdego z działów,
-  * należy do plików *.jsp dodać nowy 'form' z przyciskiem,
-* Dodaj kolejny produkt, który będzie można dodać do koszyka ma działać analogicznie do już istniejących,
-  * należy utworzyć właściwy servlet,
-  * należy utworzyć właściwy plik *.jsp,
-* Dodaj do widoku koszyka przycisk "Wyczyść koszyk", który będzie powodował wyczyszczenie całego koszyka,
-  * należy dodać metodę 'clearBasket' do klasy BasketService,
-  * należy utworzyć klasę ClearBasketServlet z właściwą metodą 'doPost',
-  * należy we właściwy sposób zmodyfikować klasę BasketServlet,
-* Zmodyfikuj istniejącą funkcjonalność dodawania produktów do koszyka tak, aby dało się wybierać ilość produktów,
-  * należy dodać do encji dodatkowe pole 'quantity',
-  * należy odpowiednio zmodyfikować metode 'buyItem' w klasie BasketService,
-  * należy zmodyfikować metodę 'doPost' w AddToBasketServlet,
-  * należy dodać dodatkowy input typu 'number' w plikach *.jsp,
-* Zmodyfikuj istniejącą funkcjonalność tak, aby w podczas dodawania produktu do koszyka ilość sumowała się zamiast dodawać kolejny rekord w ramach tego samego produktu,
-  * należy odpowiednio zmodyfikować metode 'buyItem' w klasie BasketService,
-* Dodaj funcjonalność odejmowania produktów,
-  * należy utworzyć metodę 'sellItem' w klasie BasketService,
-  * należy utworzyć servlet SellFromBasketServlet z właściwą metodą 'doPost',
-  * należy dodać do plików *.jsp nowy form analogiczny do tego, który służy do dodawania, ale realizujący funkcjonalność odejmowania produktów z koszyka.
+## Zadanie 1: Dodaj przycisk "Rozmyśliłem się"
+1. **Cel:** Dodanie przycisku, który będzie działał analogicznie do przycisku "Powrót do strony głównej" na każdej stronie działu.
+2. **Kroki:**
+  - Do każdego pliku `*.jsp` dodaj nowy formularz (`<form>`), który będzie zawierał przycisk z akcją powrotu na stronę główną.
+
+## Zadanie 2: Dodaj nowy produkt do koszyka
+1. **Cel:** Dodanie nowego produktu, który będzie można dodać do koszyka w taki sam sposób, jak już istniejące produkty.
+2. **Kroki:**
+  - Utwórz odpowiedni servlet obsługujący dodawanie tego produktu.
+  - Utwórz odpowiedni plik `*.jsp` z formularzem umożliwiającym dodanie nowego produktu do koszyka.
+
+## Zadanie 3: Dodaj przycisk "Wyczyść koszyk"
+1. **Cel:** Dodanie funkcjonalności wyczyszczenia koszyka.
+2. **Kroki:**
+  - Dodaj metodę `clearBasket` do klasy `BasketService`.
+  - Utwórz klasę `ClearBasketServlet` z odpowiednią metodą `doPost`, która wywoła `clearBasket`.
+  - Zmodyfikuj odpowiednio klasę `BasketServlet`, aby obsługiwała akcję wyczyszczenia koszyka.
+
+## Zadanie 4: Modyfikacja funkcji dodawania produktów do koszyka
+1. **Cel:** Dodanie możliwości wyboru ilości produktów podczas dodawania ich do koszyka.
+2. **Kroki:**
+  - Dodaj pole `quantity` do encji produktu.
+  - Zmodyfikuj metodę `buyItem` w klasie `BasketService`, aby obsługiwała ilość dodawanych produktów.
+  - Zmodyfikuj metodę `doPost` w servletcie `AddToBasketServlet`, aby obsługiwała pole `quantity`.
+  - Dodaj dodatkowe pole `input` typu `number` w odpowiednich plikach `*.jsp`.
+
+## Zadanie 5: Sumowanie ilości produktów w koszyku
+1. **Cel:** Zmodyfikowanie funkcji dodawania produktów do koszyka tak, aby ilość produktów sumowała się zamiast dodawać kolejny rekord tego samego produktu.
+2. **Kroki:**
+  - Zmodyfikuj metodę `buyItem` w klasie `BasketService`, aby sumowała ilość produktów w koszyku zamiast dodawać nowy wpis.
+
+## Zadanie 6: Dodaj funkcjonalność odejmowania produktów
+1. **Cel:** Dodanie możliwości odejmowania produktów z koszyka.
+2. **Kroki:**
+  - Utwórz metodę `sellItem` w klasie `BasketService`.
+  - Utwórz servlet `SellFromBasketServlet` z metodą `doPost`, która obsłuży odejmowanie produktów.
+  - Dodaj do plików `*.jsp` nowy formularz (`<form>`), analogiczny do formularza dodawania produktów, ale realizujący funkcję odejmowania produktów z koszyka.
