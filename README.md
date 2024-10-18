@@ -136,11 +136,11 @@ po zbudowaniu projektu, **przejdź do sekcji**: ["## Uruchamianie serwera aplika
     - Skopiuj ponownie wygenerowany plik `.war` z katalogu `target` do katalogu `webapps` Tomcata:
         - Na Windows:
           ```shell
-          copy target\store.war C:\Tomcat\webapps\
+          copy target\store-1.0-SNAPSHOT.war C:\Tomcat\webapps\
           ```
         - Na macOS/Linux:
           ```shell
-          cp target/store.war /opt/tomcat/webapps/
+          cp target/store-1.0-SNAPSHOT.war /opt/tomcat/webapps/
           ```
     - Ponownie uruchom Tomcat, aby zobaczyć zmiany w aplikacji.
 
