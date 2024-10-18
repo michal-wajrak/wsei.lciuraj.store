@@ -35,6 +35,9 @@ Jeśli Maven nie jest zainstalowany, pobierz i zainstaluj go z oficjalnej strony
 > clean usuwa wszystkie pliki wygenerowane w poprzednich kompilacjach.
 
 > install buduje projekt i instaluje jego artefakty w lokalnym repozytorium Maven. 
+
+
+po zbudowaniu projektu, **przejdź do sekcji**: ["## Uruchamianie serwera aplikacyjnego Tomcat"](#uruchamianie-serwera-aplikacyjnego-tomcat)
  
 ## Jak sklonować i zbudować projekt przy użyciu IntelliJ IDEA (Community Edition)
 
