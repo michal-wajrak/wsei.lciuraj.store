@@ -84,11 +84,11 @@ Jeśli Maven nie jest zainstalowany, pobierz i zainstaluj go z oficjalnej strony
 5. **Skopiuj wygenerowany plik `.war` do katalogu `webapps` w katalogu instalacyjnym Tomcat**:
   - Na Windows:
     ```shell
-    copy target\store.war C:\Tomcat\webapps\
+    copy target\store-1.0-SNAPSHOT.war C:\Tomcat\webapps\
     ```
   - Na macOS/Linux:
     ```shell
-    cp target/store.war /opt/tomcat/webapps/
+    cp target/store-1.0-SNAPSHOT.war /opt/tomcat/webapps/
     ```
 
 6. **Uruchom Tomcat**:
@@ -126,6 +126,20 @@ Jeśli Maven nie jest zainstalowany, pobierz i zainstaluj go z oficjalnej strony
     ```shell
     /opt/tomcat/bin/shutdown.sh
     ```
+
+### Ważne:
+- **Po każdej modyfikacji kodu**:
+    - Zbuduj projekt ponownie w IntelliJ IDEA za pomocą Maven (`package` w sekcji `Lifecycle`).
+    - Skopiuj ponownie wygenerowany plik `.war` z katalogu `target` do katalogu `webapps` Tomcata:
+        - Na Windows:
+          ```shell
+          copy target\store.war C:\Tomcat\webapps\
+          ```
+        - Na macOS/Linux:
+          ```shell
+          cp target/store.war /opt/tomcat/webapps/
+          ```
+    - Ponownie uruchom Tomcat, aby zobaczyć zmiany w aplikacji.
 
 # ZADANIA DO SAMODZIELNEGO WYKONANIA
 
