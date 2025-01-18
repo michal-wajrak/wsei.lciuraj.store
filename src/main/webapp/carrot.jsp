@@ -12,5 +12,9 @@
     <input type="submit" value="Kup marchewke">
 </form>
 
+<form action="${pageContext.request.contextPath}/" method="post">
+    <input type="submit" value="Rozmyśliłem się">
+</form>
+
 </body>
 </html>
