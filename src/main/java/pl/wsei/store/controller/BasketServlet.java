@@ -13,7 +13,7 @@ import pl.wsei.store.service.BasketService;
 @WebServlet(name = "BasketServlet", value = "/basket-servlet")
 public class BasketServlet extends HttpServlet {
 
-    private BasketService basketService = new BasketService();
+    private final BasketService basketService = new BasketService();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +43,11 @@ public class BasketServlet extends HttpServlet {
         out.println("<br><br>");
         out.println("<form action='" + request.getContextPath() + "/index.jsp' method='get'>");
         out.println("<input type='submit' value='Powrót do strony głównej'>");
+        out.println("</form>");
+
+        out.println("<br><br>");
+        out.println("<form action='" + request.getContextPath() + "/clear-basket' method='post'>");
+        out.println("<input type='submit' value='Wyczyść koszyk'>");
         out.println("</form>");
 
         out.println("</body></html>");

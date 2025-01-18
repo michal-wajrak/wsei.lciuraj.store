@@ -33,10 +33,27 @@ public class BasketService {
         EntityManager em = emf.createEntityManager();
         List<Basket> items;
         try {
-            items = em.createQuery("SELECT b FROM Basket b", Basket.class).getResultList();
+            items = em.createQuery("SELECT b FROM Basket b ", Basket.class).getResultList();
         } finally {
             em.close();
         }
         return items;
+    }
+
+    public void clearBasket () {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+
+            em.createQuery("DELETE FROM Basket").executeUpdate();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
+            em.clear();
+            em.close();
+        }
     }
 }
