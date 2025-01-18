@@ -11,14 +11,16 @@ public class BasketService {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
-    public void buyItem(String item) {
+    public void buyItem(String item, Integer quantity) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
 
-            Basket basket = new Basket();
-            basket.setItem(item);
-            em.persist(basket);
+            for (int i = 0; i < quantity; i++) {
+                Basket basket = new Basket();
+                basket.setItem(item);
+                em.persist(basket);
+            }
 
             em.getTransaction().commit();
         } catch (Exception e) {

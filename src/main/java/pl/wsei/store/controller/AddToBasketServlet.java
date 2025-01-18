@@ -17,9 +17,20 @@ public class AddToBasketServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String item = request.getParameter("item");
+        String inputQuantity = request.getParameter("quantity");
+
+        int quantity;
 
         try {
-            basketService.buyItem(item);
+            quantity = Integer.parseInt(inputQuantity);
+        } catch (NumberFormatException e) {
+            quantity = 1;
+        }
+
+        System.out.println(quantity);
+
+        try {
+            basketService.buyItem(item, quantity);
             response.sendRedirect(request.getContextPath() + "/basket-servlet");
         } catch (Exception e) {
             throw new ServletException("Error processing request", e);

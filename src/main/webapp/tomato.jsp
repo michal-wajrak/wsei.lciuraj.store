@@ -9,6 +9,10 @@
 
 <form action="${pageContext.request.contextPath}/add-to-basket" method="post">
     <input type="hidden" name="item" value="pomidor">
+
+    <label for="quantity">Ilość produktów:</label>
+    <input name="quantity" id="quantity" type="number" required />
+
     <input type="submit" value="Kup pomidora">
 </form>
 
