@@ -28,12 +28,18 @@ public class BasketServlet extends HttpServlet {
 
         if (items != null && !items.isEmpty()) {
             out.println("<table border='1'>");
-            out.println("<tr><th>ID</th><th>Produkt</th><th>Ilość</th></tr>");
+            out.println("<tr><th>ID</th><th>Produkt</th><th>Ilość</th><th>Sprzedaj</th></tr>");
             for (Basket item : items) {
                 out.println("<tr>");
                 out.println("<td>" + item.getId() + "</td>");
                 out.println("<td>" + item.getItem() + "</td>");
                 out.println("<td>" + item.getQuantity() + "</td>");
+                out.println("<td>");
+                out.println("<form action='" + request.getContextPath() + "/sell-item' method='post'>");
+                out.println("<input type='hidden' name='item' value='" + item.getItem() + "'>");
+                out.println("<input type='submit' value='Sprzedaj'>");
+                out.println("</form>");
+                out.println("</td>");
                 out.println("</tr>");
             }
             out.println("</table>");

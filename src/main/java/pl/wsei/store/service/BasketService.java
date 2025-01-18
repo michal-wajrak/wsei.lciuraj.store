@@ -11,18 +11,22 @@ public class BasketService {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
 
+    private Basket findExistingBasket(EntityManager em, String item) {
+        return em.createQuery(
+        "SELECT b FROM Basket b WHERE b.item = :item", Basket.class)
+            .setParameter("item", item)
+            .getResultStream()
+            .findFirst()
+            .orElse(null);
+    }
+
     public void buyItem(String item, Integer quantity) {
         EntityManager em = emf.createEntityManager();
 
         try {
             em.getTransaction().begin();
 
-            Basket existingBasket = em.createQuery(
-                "SELECT b FROM Basket b WHERE b.item = :item", Basket.class)
-                .setParameter("item", item)
-                .getResultStream()
-                .findFirst()
-                .orElse(null);
+            Basket existingBasket = findExistingBasket(em, item);
 
             if (existingBasket != null) {
                 existingBasket.setQuantity(existingBasket.getQuantity() + quantity);
@@ -67,6 +71,34 @@ public class BasketService {
             throw e;
         } finally {
             em.clear();
+            em.close();
+        }
+    }
+
+    public void sellItem(String item) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+
+            Basket existingBasket = findExistingBasket(em, item);
+
+            if (existingBasket != null) {
+                int updatedQuantity = existingBasket.getQuantity() - 1;
+
+                if (updatedQuantity > 0) {
+                    existingBasket.setQuantity(updatedQuantity);
+                    em.merge(existingBasket);
+                } else {
+                    em.remove(existingBasket);
+                }
+            }
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
             em.close();
         }
     }
