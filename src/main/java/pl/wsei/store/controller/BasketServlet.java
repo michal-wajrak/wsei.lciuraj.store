@@ -28,11 +28,12 @@ public class BasketServlet extends HttpServlet {
 
         if (items != null && !items.isEmpty()) {
             out.println("<table border='1'>");
-            out.println("<tr><th>ID</th><th>Item</th></tr>");
+            out.println("<tr><th>ID</th><th>Produkt</th><th>Ilość</th></tr>");
             for (Basket item : items) {
                 out.println("<tr>");
                 out.println("<td>" + item.getId() + "</td>");
                 out.println("<td>" + item.getItem() + "</td>");
+                out.println("<td>" + item.getQuantity() + "</td>");
                 out.println("</tr>");
             }
             out.println("</table>");
