@@ -37,7 +37,8 @@ public class BasketServlet extends HttpServlet {
                 out.println("<td>");
                 out.println("<form action='" + request.getContextPath() + "/sell-item' method='post'>");
                 out.println("<input type='hidden' name='item' value='" + item.getItem() + "'>");
-                out.println("<input type='submit' value='Sprzedaj'>");
+                out.println("<label>Ilość:<br/><input name='quantity' id='quantity' type='number' required /></label>");
+                out.println("<br/><br/><input type='submit' value='Sprzedaj'>");
                 out.println("</form>");
                 out.println("</td>");
                 out.println("</tr>");

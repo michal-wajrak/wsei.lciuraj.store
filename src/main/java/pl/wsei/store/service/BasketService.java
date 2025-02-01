@@ -75,7 +75,7 @@ public class BasketService {
         }
     }
 
-    public void sellItem(String item) {
+    public void sellItem(String item, Integer quantity) {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -84,7 +84,7 @@ public class BasketService {
             Basket existingBasket = findExistingBasket(em, item);
 
             if (existingBasket != null) {
-                int updatedQuantity = existingBasket.getQuantity() - 1;
+                int updatedQuantity = existingBasket.getQuantity() - quantity;
 
                 if (updatedQuantity > 0) {
                     existingBasket.setQuantity(updatedQuantity);
